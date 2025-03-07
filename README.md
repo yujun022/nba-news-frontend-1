@@ -11,6 +11,9 @@
 ```bash
 pip install -r requirements.txt
 ```
+## 3. 設定環境變數
+請在專案根目錄建立 ```bash .env``` 檔案，內容如下：
+
 
 
 
