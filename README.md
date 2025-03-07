@@ -47,4 +47,8 @@ DATABASE_URL=mysql+pymysql://user:password@localhost:3306/nba_news
   "link": "https://example.com/news/1"
 }
 ```
+# 測試說明
+## 測試爬蟲腳本
+### 可執行以下命令來測試爬取新聞是否成功：
+```python scraper.py```
 
