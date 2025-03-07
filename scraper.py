@@ -32,4 +32,3 @@ db.commit()
 db.close()
 
 print("爬蟲資料抓取並寫入資料庫完成！")
-
