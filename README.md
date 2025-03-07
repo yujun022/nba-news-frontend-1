@@ -31,3 +31,12 @@ DATABASE_URL=mysql+pymysql://user:password@localhost:3306/nba_news
   }
 ]
 ```
+## 2. 獲取新聞詳情
+### GET /news/{news_id}
+```{
+  "id": 1,
+  "title": "NBA 最新消息",
+  "link": "https://example.com/news/1"
+}
+```
+
