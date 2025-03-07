@@ -39,4 +39,12 @@ DATABASE_URL=mysql+pymysql://user:password@localhost:3306/nba_news
   "link": "https://example.com/news/1"
 }
 ```
+## 3. 新增新聞
+### POST /news
+```
+{
+  "title": "NBA 最新消息",
+  "link": "https://example.com/news/1"
+}
+```
 
