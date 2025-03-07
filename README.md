@@ -16,6 +16,9 @@ pip install -r requirements.txt
 ```bash
 DATABASE_URL=mysql+pymysql://user:password@localhost:3306/nba_news
 ```
+## 4. 運行專案
+``` uvicorn main:app --reload```
+
 
 
 
