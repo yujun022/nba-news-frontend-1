@@ -21,3 +21,25 @@ Clone 本專案
 git clone https://github.com/yujun022/nba-news-frontend.git
 
 cd nba-news-frontend
+
+建立 Python 虛擬環境
+
+python -m venv venv
+
+source venv/bin/activate  # Windows 使用 venv\Scripts\activate
+
+安裝後端依賴套件
+
+pip install -r requirements.txt
+
+設定 MySQL 資料庫
+
+mysql -u root -p
+
+CREATE DATABASE nba_news;
+
+設定環境變數 (.env)
+
+cp .env.example .env
+
+# 編輯 .env，填寫資料庫設定
