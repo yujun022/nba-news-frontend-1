@@ -13,6 +13,10 @@ pip install -r requirements.txt
 ```
 ## 3. 設定環境變數
 請在專案根目錄建立 ```bash .env``` 檔案，內容如下：
+```bash
+DATABASE_URL=mysql+pymysql://user:password@localhost:3306/nba_news
+```
+
 
 
 
