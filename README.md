@@ -18,6 +18,16 @@ DATABASE_URL=mysql+pymysql://user:password@localhost:3306/nba_news
 ```
 ## 4. 運行專案
 ```uvicorn main:app --reload```
+# API 文件
+## 1. 獲取新聞列表
+### GET /news
+```[
+  {
+    "id": 1,
+    "title": "NBA 最新消息",
+    "link": "https://example.com/news/1"
+  }
+]```
 
 
 
