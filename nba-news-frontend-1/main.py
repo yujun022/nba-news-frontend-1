@@ -97,6 +97,11 @@ async def create_news(news: NewsCreate, db: Session = Depends(get_db)):
     db.refresh(new_news)
     return new_news  # 返回新創建的新聞
 
+# 根目錄路由，這是為了解決 404 錯誤
+@app.get("/")
+async def read_root():
+    return {"message": "Welcome to the NBA News API!"}
+
 # 如果此文件被直接執行，啟動 FastAPI 應用並綁定 8000 端口
 if __name__ == "__main__":
     uvicorn.run(app, host="0.0.0.0", port=8000)
