@@ -7,6 +7,7 @@ import os
 import logging
 from dotenv import load_dotenv
 from contextlib import asynccontextmanager
+import uvicorn
 
 # 載入 .env 文件中的環境變數
 load_dotenv()
@@ -15,10 +16,13 @@ load_dotenv()
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
-# 讀取環境變數中的 DATABASE_URL
-DATABASE_URL = os.getenv("DATABASE_URL", "mysql+pymysql://user:password@localhost:3306/nba_news")
+# 讀取環境變數中的 DATABASE_URL（確保改用 PostgreSQL）
+DATABASE_URL = os.getenv(
+    "DATABASE_URL",
+    "postgresql+psycopg2://nba_news_user:UeF6LCGrOjwe8D8wjn3XYf9z2P2LW1lO@dpg-cv67k92n91rc73bcmcv0-a/nba_news"
+)
 
-# 設置同步資料庫引擎
+# 設置同步資料庫引擎（PostgreSQL）
 engine = create_engine(DATABASE_URL, echo=True)
 SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
 
@@ -36,7 +40,7 @@ class News(Base):
 @asynccontextmanager
 async def lifespan(app: FastAPI):
     logger.info("應用程式啟動，建立資料表...")
-    Base.metadata.create_all(bind=engine)
+    Base.metadata.create_all(bind=engine)  # 確保資料表存在
     yield
     logger.info("應用程式關閉")
 
@@ -92,3 +96,7 @@ async def create_news(news: NewsCreate, db: Session = Depends(get_db)):
     db.commit()
     db.refresh(new_news)
     return new_news  # 返回新創建的新聞
+
+# 如果此文件被直接執行，啟動 FastAPI 應用並綁定 8000 端口
+if __name__ == "__main__":
+    uvicorn.run(app, host="0.0.0.0", port=8000)
