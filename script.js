@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", function () {
     // 載入新聞列表
-    fetch("http://127.0.0.1:8000/news") // 你的後端 API
+    fetch("https://nba-news-frontend-1.onrender.com/news") // 你的後端 API
         .then(response => response.json())
         .then(data => {
             const newsList = document.getElementById("news-list");
@@ -28,7 +28,7 @@ document.addEventListener("DOMContentLoaded", function () {
         const newsData = { title, link };
 
         // 發送 POST 請求到後端 API
-        fetch("http://127.0.0.1:8000/news", {
+        fetch("https://nba-news-frontend-1.onrender.com/news", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
@@ -46,7 +46,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // 函式：載入新聞
     function loadNews() {
-        fetch("http://127.0.0.1:8000/news")
+        fetch("https://nba-news-frontend-1.onrender.com/news")
             .then(response => response.json())
             .then(data => {
                 const newsList = document.getElementById("news-list");
